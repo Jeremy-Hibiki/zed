@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: target/release/wasm32-wasi/zed.exe
+          path: target/release/zed.exe
 
       - name: Create Nightly Release
         uses: ncipollo/release-action@v1
@@ -54,5 +54,5 @@ jobs:
           tag: nightly
           allowUpdates: true
           prerelease: true
-          artifacts: target/release/wasm32-wasi/zed.exe
+          artifacts: target/release/zed.exe
           token: ${{ secrets.GH_TOKEN }}
