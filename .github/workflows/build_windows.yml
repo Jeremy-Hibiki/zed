@@ -43,16 +43,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-output
+          name: zed.exe
           path: target/release/zed.exe
 
       - name: Create Nightly Release
         uses: ncipollo/release-action@v1
-        env:
-          GH_TOKEN: ${{ github.token }}
         with:
           tag: nightly
           allowUpdates: true
           prerelease: true
           artifacts: target/release/zed.exe
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
